@@ -20,6 +20,11 @@
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
 </head>
 <body>
+
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
+
     <div id="app">
 
         <b-navbar type="dark" variant="primary">
@@ -35,15 +40,16 @@
                     @endif
                 @else
                     <!-- Navbar dropdowns -->
-                    <b-nav-item-dropdown text="User" right>
-                        <b-dropdown-item href="#">Account</b-dropdown-item>
-                        <b-dropdown-item href="#">Settings</b-dropdown-item>
+                    <b-nav-item-dropdown text="{{ Auth::user()->name }}" right>
+                        <b-dropdown-item href="#" @click="logout">
+                            Cerrar Sesión
+                        </b-dropdown-item>
                     </b-nav-item-dropdown>
                 @endguest
             </b-navbar-nav>
         </b-navbar>
 
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+        {{-- <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -70,8 +76,8 @@
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif --}}
-                        @else
-                            <li class="nav-item dropdown">
+                        {{-- @else --}}
+                            {{-- <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
@@ -87,13 +93,13 @@
                                         @csrf
                                     </form>
                                 </div>
-                            </li>
-                        @endguest
+                            </li> --}}
+                       {{-- @endguest
                     </ul>
                 </div>
 
             </div>
-        </nav>
+        </nav> --}}
 
         <main class="py-4">
             @yield('content')

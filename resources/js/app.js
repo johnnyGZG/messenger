@@ -8,5 +8,11 @@ Vue.use(BootstrapVue)
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    methods: {
+        logout()
+        {
+            document.getElementById('logout-form').submit();
+        }
+    }
 });
