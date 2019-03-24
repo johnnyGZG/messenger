@@ -11,7 +11,19 @@
                 <b-form method="POST" action="{{ route('login') }}">
                     @csrf
 
-                    <b-alert show>Datos personales</b-alert> 
+                    @if($errors->any())
+                        <b-alert show variant="danger">
+                            <ul class="mb-0">
+                                @foreach($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </b-alert>
+                    @else
+                        <b-alert show>
+                            Por favor ingresa tus datos:
+                        </b-alert> 
+                    @endif
 
                     <b-form-group 
                         id="email" 
