@@ -21,6 +21,28 @@
 </head>
 <body>
     <div id="app">
+
+        <b-navbar type="light" variant="light">
+            <b-navbar-brand href="{{ url('/') }}">
+                {{ config('app.name', 'Laravel') }}
+            </b-navbar-brand>
+
+            <b-navbar-nav class="ml-auto">
+                @guest
+                    <b-nav-item href="{{ route('login') }}">Ingresar</b-nav-item>
+                    @if (Route::has('register'))
+                        <b-nav-item href="{{ route('register') }}">Registro</b-nav-item>
+                    @endif
+                @else
+                    <!-- Navbar dropdowns -->
+                    <b-nav-item-dropdown text="User" right>
+                        <b-dropdown-item href="#">Account</b-dropdown-item>
+                        <b-dropdown-item href="#">Settings</b-dropdown-item>
+                    </b-nav-item-dropdown>
+                @endguest
+            </b-navbar-nav>
+        </b-navbar>
+
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -40,14 +62,14 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
-                            @endif
+                            @endif --}}
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -69,6 +91,7 @@
                         @endguest
                     </ul>
                 </div>
+
             </div>
         </nav>
 
