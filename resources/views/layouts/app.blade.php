@@ -22,7 +22,7 @@
 <body>
     <div id="app">
 
-        <b-navbar type="light" variant="light">
+        <b-navbar type="dark" variant="primary">
             <b-navbar-brand href="{{ url('/') }}">
                 {{ config('app.name', 'Laravel') }}
             </b-navbar-brand>
