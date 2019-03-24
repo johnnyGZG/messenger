@@ -1,10 +1,99 @@
-@extends('layouts.app')
+@extends('layouts.app') 
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
+
+<b-container>
+    <b-row  align-h="center">
+        <b-col cols="8">
+                <b-card
+                header="Registro"
+                header-tag="header-registro"
+            >
+                <b-form method="POST" action="{{ route('register') }}">
+                    @csrf
+
+                    <b-alert show>Por favor ingresa tus datos:</b-alert> 
+
+                    <b-form-group 
+                        id="name" 
+                        label="Nombre" 
+                        label-for="name"
+                    >
+                        <b-form-input
+                            id="name"
+                            type="name"
+                            {{-- v-model="form.name" --}}
+                            name="name" 
+                            value="{{ old('name') }}" 
+                            required 
+                            autofocus />
+                    </b-form-group>
+
+                    <b-form-group 
+                        id="email" 
+                        label="Correo electronico:" 
+                        label-for="email"
+                        description="Nunca compartiremos tu correo. Estás seguro con nosotros"
+                    >
+                        <b-form-input
+                            id="email"
+                            type="email"
+                            {{-- v-model="form.name" --}}
+                            name="email" 
+                            value="{{ old('email') }}" 
+                            required
+                            placeholder="example@example.com" />
+                    </b-form-group>
+
+                    <b-form-group 
+                        id="password" 
+                        label="Contraseña:" 
+                        label-for="password"
+                    >
+                        <b-form-input
+                            id="password"
+                            type="password"
+                            {{-- v-model="form.name" --}}
+                            name="password"
+                            required />
+                    </b-form-group>
+
+                    <b-form-group 
+                        id="password-confirm" 
+                        label="Confirmar contraseña:" 
+                        label-for="password-confirm"
+                    >
+                        <b-form-input
+                            id="password-confirm"
+                            type="password"
+                            {{-- v-model="form.name" --}}
+                            name="password-confirm"
+                            required />
+                    </b-form-group>
+    
+                    <b-button
+                        type="submit"
+                        variant="primary"
+                    >
+                        Confirmar registro
+                    </b-button>
+
+                    @if (Route::has('login'))
+                        <b-button
+                            href="{{ route('login') }}"
+                            variant="link"
+                        >
+                            ¿Ya te has registrado?
+                        </b-button>
+                    @endif
+                </b-form>
+            </b-card>
+        </b-col>
+    </b-row>
+</b-container>
+
+
+            {{-- <div class="card">
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
@@ -70,8 +159,6 @@
                         </div>
                     </form>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
+            </div> --}}
+
 @endsection

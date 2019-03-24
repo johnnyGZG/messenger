@@ -17,7 +17,6 @@
                         id="email" 
                         label="Correo electronico:" 
                         label-for="email"
-                        description="Nunca compartiremos tu correo. Estás seguro con nosotros"
                     >
                         <b-form-input
                             id="email"
@@ -39,8 +38,7 @@
                             id="password"
                             type="password"
                             {{-- v-model="form.name" --}}
-                            name="password" 
-                            value="{{ old('password') }}" 
+                            name="password"
                             required />
                     </b-form-group>
 
