@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-100">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,13 +19,13 @@
     <!-- Styles -->
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
 </head>
-<body>
+<body class="h-100">
 
     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
         @csrf
     </form>
 
-    <div id="app">
+    <div id="app" class="h-100">
 
         <b-navbar type="dark" variant="primary">
             <b-navbar-brand href="{{ url('/') }}">
@@ -101,7 +101,7 @@
             </div>
         </nav> --}}
 
-        <main class="py-4">
+        <main class="pt-1">
             @yield('content')
         </main>
     </div>

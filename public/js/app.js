@@ -1786,6 +1786,64 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     // los datos que va ha cargar el componente
@@ -58356,8 +58414,125 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "b-row",
+    { staticClass: "h-100" },
     [
-      _c("b-col", { attrs: { cols: "8" } }),
+      _c(
+        "b-col",
+        { attrs: { cols: "8" } },
+        [
+          _c(
+            "b-card",
+            {
+              staticClass: "h-100",
+              attrs: {
+                "footer-bg-variant": "light",
+                "footer-border-variant": "dark",
+                title: "Conversación activa"
+              }
+            },
+            [
+              _c(
+                "b-media",
+                { staticClass: "mb-2", attrs: { "vertical-align": "center" } },
+                [
+                  _c("b-img", {
+                    attrs: {
+                      slot: "aside",
+                      rounded: "circle",
+                      blank: "",
+                      "blank-color": "#ccc",
+                      width: "48",
+                      alt: "placeholder"
+                    },
+                    slot: "aside"
+                  }),
+                  _vm._v(" "),
+                  _c("b-card", [
+                    _vm._v(
+                      "\n                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.\n                    Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.\n                "
+                    )
+                  ])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "b-media",
+                {
+                  staticClass: "mb-2",
+                  attrs: { "right-align": "", "vertical-align": "center" }
+                },
+                [
+                  _c("b-img", {
+                    attrs: {
+                      slot: "aside",
+                      rounded: "circle",
+                      blank: "",
+                      "blank-color": "#ccc",
+                      width: "48",
+                      alt: "placeholder"
+                    },
+                    slot: "aside"
+                  }),
+                  _vm._v(" "),
+                  _c("b-card", [
+                    _vm._v(
+                      "\n                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.\n                    Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.\n                "
+                    )
+                  ])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { attrs: { slot: "footer" }, slot: "footer" },
+                [
+                  _c(
+                    "b-form",
+                    { staticClass: "mb-0" },
+                    [
+                      _c(
+                        "b-input-group",
+                        [
+                          _c("b-form-input", {
+                            staticClass: "text-center",
+                            attrs: {
+                              type: "text",
+                              placeholder: "Escribe un mensaje ..."
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "b-input-group-append",
+                            [
+                              _c(
+                                "b-button",
+                                { attrs: { variant: "primary" } },
+                                [
+                                  _vm._v(
+                                    "\n                                Enviar\n                            "
+                                  )
+                                ]
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      ),
       _vm._v(" "),
       _c(
         "b-col",

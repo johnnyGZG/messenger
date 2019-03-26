@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <b-container fluid>
-        <b-row>
+    <b-container fluid style="height: calc( 100vh - 60px );">
+        <b-row no-gutters class="h-100">
             <b-col cols="4">
                 <contact-list-component></contact-list-component>
             </b-col>
