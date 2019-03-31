@@ -25,8 +25,8 @@ class CreateConversationsTable extends Migration
             $table->foreign('contact_id')->references('id')->on('users');
 
             // last message: content, dateTime
-            $table->text('last_message');
-            $table->dateTime('last_time');
+            $table->text('last_message')->nullable();
+            $table->dateTime('last_time')->nullable();
 
             $table->boolean('listen_notifications')->default(true);
             $table->boolean('has_blocked')->default(false);
