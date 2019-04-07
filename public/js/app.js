@@ -1819,6 +1819,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     // los datos que va ha cargar el componente
@@ -58460,21 +58461,22 @@ var render = function() {
               }
             },
             [
-              _c("message-conversation-component", [
-                _vm._v(
-                  "\n                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.\n                Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.\n            "
+              _vm._l(_vm.messages, function(message) {
+                return _c(
+                  "message-conversation-component",
+                  {
+                    key: message.id,
+                    attrs: { "written-by-me": message.written_by_me }
+                  },
+                  [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(message.content) +
+                        "\n            "
+                    )
+                  ]
                 )
-              ]),
-              _vm._v(" "),
-              _c(
-                "message-conversation-component",
-                { attrs: { "written-by-me": "" } },
-                [
-                  _vm._v(
-                    "\n                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.\n                Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.\n            "
-                  )
-                ]
-              ),
+              }),
               _vm._v(" "),
               _c(
                 "div",
@@ -58520,7 +58522,7 @@ var render = function() {
                 1
               )
             ],
-            1
+            2
           )
         ],
         1
