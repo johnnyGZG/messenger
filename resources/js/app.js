@@ -17,6 +17,10 @@ Vue.component('active-conversation-component',
     require('./components/ActiveConversationComponent.vue').default
 );
 
+Vue.component('message-conversation-component', 
+    require('./components/MessageConversationComponent.vue').default
+);
+
 const app = new Vue({
     el: '#app',
     methods: {

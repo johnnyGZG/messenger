@@ -7,40 +7,15 @@
                 title="Conversación activa"
                 class="h-100"
             >
-                <b-media 
-                    vertical-align="center"
-                    class="mb-2"
-                >
-                    <b-img 
-                        rounded="circle"
-                        slot="aside" 
-                        blank 
-                        blank-color="#ccc" 
-                        width="48" 
-                        alt="placeholder" />
-                    <b-card>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
-                        Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
-                    </b-card>
-                </b-media>
+                <message-conversation-component>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
+                    Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+                </message-conversation-component>
 
-                <b-media 
-                    right-align 
-                    vertical-align="center"
-                    class="mb-2"
-                >
-                    <b-img 
-                        rounded="circle"
-                        slot="aside" 
-                        blank 
-                        blank-color="#ccc" 
-                        width="48" 
-                        alt="placeholder" />
-                    <b-card>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
-                        Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
-                    </b-card>
-                </b-media>
+                <message-conversation-component written-by-me>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
+                    Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+                </message-conversation-component>
 
                 <div slot="footer">
                     <b-form class="mb-0">
@@ -83,10 +58,15 @@
     export default {
         data: function () {// los datos que va ha cargar el componente
             return {
+                messages: []
             }
         },
         mounted() { // funciones o metodos que va ha tener el componente
-            console.log('Component mounted.')
+            axios.get('/api/mensajes')
+                    .then( (response) => {
+                        console.log(response.data);
+                        this.messages = response.data;
+                    });
         }
     }
 </script>
