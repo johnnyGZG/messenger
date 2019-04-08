@@ -19,16 +19,17 @@
                 </message-conversation-component>
 
                 <div slot="footer">
-                    <b-form class="mb-0">
+                    <b-form class="mb-0" @submit.prevent="postMessage" autocomplete="off" >
                         <b-input-group>
                             <b-form-input
                                 class="text-center"
                                 type="text"
+                                v-model="newMessage"
                                 placeholder="Escribe un mensaje ..."
                             >
                             </b-form-input>
                             <b-input-group-append>
-                                <b-button variant="primary">
+                                <b-button type="submit" variant="primary">
                                     Enviar
                                 </b-button>
                             </b-input-group-append>
@@ -59,15 +60,37 @@
     export default {
         data: function () {// los datos que va ha cargar el componente
             return {
-                messages: []
+                messages: [],
+                newMessage: ''
             }
         },
         mounted() { // funciones o metodos que va ha tener el componente
-            axios.get('/api/mensajes')
+            this.getMessages();
+        },
+        methods: { // Se definen las funciones
+            getMessages(){
+                axios.get('/api/mensajes')
                     .then( (response) => {
                         console.log(response.data);
                         this.messages = response.data;
                     });
+            },
+            postMessage(){
+
+                const params = {
+                    to_id: 2,
+                    content: this.newMessage
+                };
+
+                axios.post('/api/mensajes', params)
+                    .then( (response) => {
+                        if(response.data.success)
+                        {
+                            this.newMessage = '';
+                            this.getMessages();
+                        }
+                    });
+            }
         }
     }
 </script>

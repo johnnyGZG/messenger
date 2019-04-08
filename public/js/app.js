@@ -1820,21 +1820,44 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     // los datos que va ha cargar el componente
     return {
-      messages: []
+      messages: [],
+      newMessage: ''
     };
   },
   mounted: function mounted() {
-    var _this = this;
-
     // funciones o metodos que va ha tener el componente
-    axios.get('/api/mensajes').then(function (response) {
-      console.log(response.data);
-      _this.messages = response.data;
-    });
+    this.getMessages();
+  },
+  methods: {
+    // Se definen las funciones
+    getMessages: function getMessages() {
+      var _this = this;
+
+      axios.get('/api/mensajes').then(function (response) {
+        console.log(response.data);
+        _this.messages = response.data;
+      });
+    },
+    postMessage: function postMessage() {
+      var _this2 = this;
+
+      var params = {
+        to_id: 2,
+        content: this.newMessage
+      };
+      axios.post('/api/mensajes', params).then(function (response) {
+        if (response.data.success) {
+          _this2.newMessage = '';
+
+          _this2.getMessages();
+        }
+      });
+    }
   }
 });
 
@@ -58484,7 +58507,16 @@ var render = function() {
                 [
                   _c(
                     "b-form",
-                    { staticClass: "mb-0" },
+                    {
+                      staticClass: "mb-0",
+                      attrs: { autocomplete: "off" },
+                      on: {
+                        submit: function($event) {
+                          $event.preventDefault()
+                          return _vm.postMessage($event)
+                        }
+                      }
+                    },
                     [
                       _c(
                         "b-input-group",
@@ -58494,6 +58526,13 @@ var render = function() {
                             attrs: {
                               type: "text",
                               placeholder: "Escribe un mensaje ..."
+                            },
+                            model: {
+                              value: _vm.newMessage,
+                              callback: function($$v) {
+                                _vm.newMessage = $$v
+                              },
+                              expression: "newMessage"
                             }
                           }),
                           _vm._v(" "),
@@ -58502,7 +58541,9 @@ var render = function() {
                             [
                               _c(
                                 "b-button",
-                                { attrs: { variant: "primary" } },
+                                {
+                                  attrs: { type: "submit", variant: "primary" }
+                                },
                                 [
                                   _vm._v(
                                     "\n                                Enviar\n                            "
