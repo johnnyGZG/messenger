@@ -1826,7 +1826,8 @@ __webpack_require__.r(__webpack_exports__);
     // los datos que va ha cargar el componente
     return {
       messages: [],
-      newMessage: ''
+      newMessage: '',
+      contactId: 2
     };
   },
   mounted: function mounted() {
@@ -1838,7 +1839,7 @@ __webpack_require__.r(__webpack_exports__);
     getMessages: function getMessages() {
       var _this = this;
 
-      axios.get('/api/mensajes').then(function (response) {
+      axios.get("/api/mensajes?contact_id=".concat(this.contactId)).then(function (response) {
         console.log(response.data);
         _this.messages = response.data;
       });
@@ -1847,7 +1848,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       var params = {
-        to_id: 2,
+        to_id: this.contactId,
         content: this.newMessage
       };
       axios.post('/api/mensajes', params).then(function (response) {

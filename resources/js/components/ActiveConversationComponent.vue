@@ -61,7 +61,8 @@
         data: function () {// los datos que va ha cargar el componente
             return {
                 messages: [],
-                newMessage: ''
+                newMessage: '',
+                contactId: 2
             }
         },
         mounted() { // funciones o metodos que va ha tener el componente
@@ -69,7 +70,7 @@
         },
         methods: { // Se definen las funciones
             getMessages(){
-                axios.get('/api/mensajes')
+                axios.get(`/api/mensajes?contact_id=${this.contactId}`) 
                     .then( (response) => {
                         console.log(response.data);
                         this.messages = response.data;
@@ -78,7 +79,7 @@
             postMessage(){
 
                 const params = {
-                    to_id: 2,
+                    to_id: this.contactId,
                     content: this.newMessage
                 };
 
