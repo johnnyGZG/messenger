@@ -11,11 +11,11 @@
                     class="m-1" />
             </b-col>
             <b-col cols="6" align-self="center" class="d-none d-md-block">
-                <p class="mb-1">{{ name }}</p>
-                <p class="mb-0 text-muted small">{{ lastMessage }}</p>
+                <p class="mb-1">{{ conversation.contact_name }}</p>
+                <p class="mb-0 text-muted small">{{ conversation.last_message }}</p>
             </b-col>
             <b-col cols="3" class="d-none d-md-block">
-                <p class="text-muted small">{{ lastTime }}</p>
+                <p class="text-muted small">{{ conversation.last_time }}</p>
             </b-col>
         </b-row>
     </b-list-group-item>
@@ -23,14 +23,13 @@
 
 <script>
     export default {
-        props: [ // Cargar parametros que va a tener el componente
-            'variant'
-        ],
+        props: { // Cargar parametros que va a tener el componente
+            variant: String,
+            conversation: Object
+        },
         data: function () {// los datos que va ha cargar el componente
             return {
-                name: 'Programador Prog',
-                lastMessage: 'Tú: Hasta Luego',
-                lastTime: '1:37 pm'
+                
             }
         },
         mounted() { // funciones o metodos que va ha tener el componente

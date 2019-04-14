@@ -10,6 +10,13 @@
         </b-form>
 
         <b-list-group>
+            <contact-component 
+                v-for="conversation in conversations"
+                :key="conversation.id"
+                :conversation="conversation"
+            >
+            </contact-component>
+            <!--
             <contact-component variant="dark">
             </contact-component>
 
@@ -18,6 +25,7 @@
             
             <contact-component variant="secondary">
             </contact-component>
+            -->
         </b-list-group>
     </div>
 </template>
@@ -26,10 +34,20 @@
     export default {
         data: function () {// los datos que va ha cargar el componente
             return {
+                conversations: []
             }
         },
         mounted() { // funciones o metodos que va ha tener el componente
-            console.log('Component mounted.')
+            this.getConversations();
+        },
+        methods: {
+            getConversations()
+            {
+                axios.get('/api/conversaciones')
+                .then((response) => {
+                    this.conversations = response.data;
+                });
+            }
         }
     }
 </script>

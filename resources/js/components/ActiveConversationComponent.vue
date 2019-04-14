@@ -72,7 +72,7 @@
             getMessages(){
                 axios.get(`/api/mensajes?contact_id=${this.contactId}`) 
                     .then( (response) => {
-                        console.log(response.data);
+                        // console.log(response.data);
                         this.messages = response.data;
                     });
             },
