@@ -8,7 +8,12 @@
             </b-col>
 
             <b-col cols="8">
-                <active-conversation-component></active-conversation-component>
+                <active-conversation-component
+                    v-if="selectedConversation"
+                    :contact-id="selectedConversation.contact_id"    
+                >
+
+                </active-conversation-component>
             </b-col>
         </b-row>
     </b-container>
@@ -16,18 +21,19 @@
 
 <script>
     export default {
-        /* data: function() {
-            return [
-
-            ]
-        },*/
+        data: function () {// los datos que va ha cargar el componente
+            return {
+                selectedConversation: null,
+            }
+        },
         mounted() {
 
         },
         methods: {
             changeActivwConversation(conversation)
             {
-                console.log('Convesacion seleccionada', conversation);
+                // console.log('Convesacion seleccionada', conversation);
+                this.selectedConversation = conversation;
             }
         }
     }

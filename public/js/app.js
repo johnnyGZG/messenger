@@ -1822,12 +1822,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    contactId: Number
+  },
   data: function data() {
     // los datos que va ha cargar el componente
     return {
       messages: [],
-      newMessage: '',
-      contactId: 2
+      newMessage: ''
     };
   },
   mounted: function mounted() {
@@ -1858,6 +1860,12 @@ __webpack_require__.r(__webpack_exports__);
           _this2.getMessages();
         }
       });
+    }
+  },
+  watch: {
+    // Permite Observar los cambios de las variables definidas en 'props' // este no se vuelva a invocar si no detecta cambio en la variable
+    contactId: function contactId(value) {
+      this.getMessages();
     }
   }
 });
@@ -2055,15 +2063,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  /* data: function() {
-      return [
-       ]
-  },*/
+  data: function data() {
+    // los datos que va ha cargar el componente
+    return {
+      selectedConversation: null
+    };
+  },
   mounted: function mounted() {},
   methods: {
     changeActivwConversation: function changeActivwConversation(conversation) {
-      console.log('Convesacion seleccionada', conversation);
+      // console.log('Convesacion seleccionada', conversation);
+      this.selectedConversation = conversation;
     }
   }
 });
@@ -58894,7 +58910,13 @@ var render = function() {
           _c(
             "b-col",
             { attrs: { cols: "8" } },
-            [_c("active-conversation-component")],
+            [
+              _vm.selectedConversation
+                ? _c("active-conversation-component", {
+                    attrs: { "contact-id": _vm.selectedConversation.contact_id }
+                  })
+                : _vm._e()
+            ],
             1
           )
         ],
@@ -71407,15 +71429,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!*******************************************************!*\
   !*** ./resources/js/components/MessagerComponent.vue ***!
   \*******************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _MessagerComponent_vue_vue_type_template_id_44490417___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MessagerComponent.vue?vue&type=template&id=44490417& */ "./resources/js/components/MessagerComponent.vue?vue&type=template&id=44490417&");
 /* harmony import */ var _MessagerComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MessagerComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/MessagerComponent.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _MessagerComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _MessagerComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -71445,7 +71466,7 @@ component.options.__file = "resources/js/components/MessagerComponent.vue"
 /*!********************************************************************************!*\
   !*** ./resources/js/components/MessagerComponent.vue?vue&type=script&lang=js& ***!
   \********************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

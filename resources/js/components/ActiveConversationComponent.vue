@@ -58,11 +58,13 @@
 
 <script>
     export default {
+        props: {
+            contactId: Number
+        },
         data: function () {// los datos que va ha cargar el componente
             return {
                 messages: [],
-                newMessage: '',
-                contactId: 2
+                newMessage: ''
             }
         },
         mounted() { // funciones o metodos que va ha tener el componente
@@ -91,6 +93,11 @@
                             this.getMessages();
                         }
                     });
+            }
+        },
+        watch: { // Permite Observar los cambios de las variables definidas en 'props' // este no se vuelva a invocar si no detecta cambio en la variable
+            contactId: function(value) {
+                this.getMessages();
             }
         }
     }
