@@ -5,6 +5,10 @@ import BootstrapVue from 'bootstrap-vue';
 
 Vue.use(BootstrapVue)
 
+Vue.component('messager-component', 
+    require('./components/MessagerComponent.vue').default
+);
+
 Vue.component('contact-component', 
     require('./components/ContactComponent.vue').default
 );
