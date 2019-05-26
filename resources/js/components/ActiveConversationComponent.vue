@@ -47,7 +47,7 @@
                 blank-color="#777" 
                 alt="Circle image" 
                 class="m-1" />
-            <p>Usuario seleccionado</p>
+            <p>{{ contactName }}</p>
             <hr>
             <b-form-checkbox>
                 Desactivar notificaciones
@@ -59,7 +59,8 @@
 <script>
     export default {
         props: {
-            contactId: Number
+            contactId: Number,
+            contactName: String
         },
         data: function () {// los datos que va ha cargar el componente
             return {

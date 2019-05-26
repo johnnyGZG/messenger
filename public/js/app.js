@@ -1823,7 +1823,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    contactId: Number
+    contactId: Number,
+    contactName: String
   },
   data: function data() {
     // los datos que va ha cargar el componente
@@ -2047,6 +2048,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -58664,7 +58666,7 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _c("p", [_vm._v("Usuario seleccionado")]),
+          _c("p", [_vm._v(_vm._s(_vm.contactName))]),
           _vm._v(" "),
           _c("hr"),
           _vm._v(" "),
@@ -58913,7 +58915,10 @@ var render = function() {
             [
               _vm.selectedConversation
                 ? _c("active-conversation-component", {
-                    attrs: { "contact-id": _vm.selectedConversation.contact_id }
+                    attrs: {
+                      "contact-id": _vm.selectedConversation.contact_id,
+                      "contact-name": _vm.selectedConversation.contact_name
+                    }
                   })
                 : _vm._e()
             ],
